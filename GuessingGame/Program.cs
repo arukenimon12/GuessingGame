@@ -14,9 +14,17 @@ namespace GuessingGame
             Random rand = new Random();
             int RandNum = rand.Next(1,100);
 
-            back:
+        back:
             Console.Write("Guess the number: ");
-            int guess = Convert.ToInt32(Console.ReadLine());
+            int guess;
+            try
+            {
+                guess = Convert.ToInt32(Console.ReadLine());
+            }
+            catch(Exception ex)
+            {
+                goto back;
+            }
 
             void Retry()
             {
